@@ -39,23 +39,24 @@ public class CustomCardExpand extends CardExpand {
     FragmentManager fragmentManager;
     Status status;
     String dialogresult;
-    public CustomCardExpand(Context context, int i, FragmentManager fragmentManager, Status status) {
-        super(context, R.layout.card_expand_layout);
-        ctx=context;
-        this.fragmentManager=fragmentManager;
-        this.status = status;
-        dialogresult = new String ();
-    }
     ArrayList<String> trips;
     Design mtrlDesign = Design.MATERIAL_DARK;
+    public CustomCardExpand(Context context, int i, FragmentManager fragmentManager, Status status) {
+        super(context, R.layout.card_expand_layout);
+        ctx = context;
+        this.fragmentManager = fragmentManager;
+        this.status = status;
+        dialogresult = new String();
+    }
+
     @Override
     public void setupInnerViewElements(ViewGroup parent, View view) {
 
         trips = new ArrayList<String>();
         trips.add("Delhi");
         trips.add("Paris");
-        TextView txtview= (TextView) parent.findViewById(R.id.list_item_tag_cloud);
-        makeTagLinks("Delhi, Paris",txtview);
+        TextView txtview = (TextView) parent.findViewById(R.id.list_item_tag_cloud);
+        makeTagLinks("Delhi, Paris", txtview);
         FancyButton addButton = (FancyButton) parent.findViewById(R.id.addjourney);
         addButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -65,7 +66,7 @@ public class CustomCardExpand extends CardExpand {
 
     }
 
-    private void makenewtripdialog(){
+    private void makenewtripdialog() {
         Delivery delivery = PostOffice.newMail(ctx)
                 .setTitle("New Trip Tag")
                 .setThemeColor(Color.DKGRAY)
@@ -95,10 +96,10 @@ public class CustomCardExpand extends CardExpand {
                                 //Toast.makeText(fa, "Text was accepted: " + text, Toast.LENGTH_SHORT).show();
                                 dialogresult = new String();
                                 dialogresult = text;
-                                if(status.getGeoLocation()!=null)
+                                if (status.getGeoLocation() != null)
                                     save_data(status.getId(), dialogresult, status.getGeoLocation());
                                 else
-                                    Toast.makeText(ctx,"Location information not available",Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(ctx, "Location information not available", Toast.LENGTH_SHORT).show();
                             }
                         }).build())
 
@@ -118,60 +119,60 @@ public class CustomCardExpand extends CardExpand {
         //Toast.makeText(fa, data + " " + Long.toString(item_id), Toast.LENGTH_LONG).show();
     }
 
-    private void makelistdialog(){
+    private void makelistdialog() {
         final CharSequence[] charSequence;
-        charSequence = new CharSequence[trips.size()+1];
-        for(int i = 0;i<trips.size()+1;i++){
-            if(i==0){
+        charSequence = new CharSequence[trips.size() + 1];
+        for (int i = 0; i < trips.size() + 1; i++) {
+            if (i == 0) {
                 charSequence[i] = "Add to new trip";
-            }
-            else
-                charSequence[i]= trips.get(i-1);
+            } else
+                charSequence[i] = trips.get(i - 1);
         }
-        Delivery delivery = PostOffice.newSimpleListMail(ctx,"Add to trip",mtrlDesign,charSequence , new ListStyle.OnItemAcceptedListener<CharSequence>() {
+        Delivery delivery = PostOffice.newSimpleListMail(ctx, "Add to trip", mtrlDesign, charSequence, new ListStyle.OnItemAcceptedListener<CharSequence>() {
 
             public void onItemAccepted(CharSequence s, int i) {
-                if(i==0){
+                if (i == 0) {
                     makenewtripdialog();
-                }
-                else{
-                    if(status.getGeoLocation()!=null)
+                } else {
+                    if (status.getGeoLocation() != null)
                         save_data(status.getId(), s.toString(), status.getGeoLocation());
                     else
-                        Toast.makeText(ctx,"Location information not available",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ctx, "Location information not available", Toast.LENGTH_SHORT).show();
                 }
             }
         });
         delivery.show(fragmentManager);
-        }
+    }
 
     private void makeTagLinks(final String text, final TextView tv) {
-        		if (text == null || tv == null) {
-            			return;
-            		}
-        		final SpannableString ss = new SpannableString(text);
-        		final List<String> items = Arrays.asList(text.split("\\s*,\\s*"));
-                int start = 0, end;
-        		for (final String item : items) {
-            			end = start + item.length();
-            			if (start < end) {
-                				ss.setSpan(new MyClickableSpan(item), start, end, 0);
-                			}
-            			start += item.length() + 2;//comma and space in the original text ;)
-            		}
-        		tv.setMovementMethod(LinkMovementMethod.getInstance());
-        		tv.setText(ss, TextView.BufferType.SPANNABLE);
-        	}
+        if (text == null || tv == null) {
+            return;
+        }
+        final SpannableString ss = new SpannableString(text);
+        final List<String> items = Arrays.asList(text.split("\\s*,\\s*"));
+        int start = 0, end;
+        for (final String item : items) {
+            end = start + item.length();
+            if (start < end) {
+                ss.setSpan(new MyClickableSpan(item), start, end, 0);
+            }
+            start += item.length() + 2;//comma and space in the original text ;)
+        }
+        tv.setMovementMethod(LinkMovementMethod.getInstance());
+        tv.setText(ss, TextView.BufferType.SPANNABLE);
+    }
 
 
-private class MyClickableSpan extends ClickableSpan {
-    private final String mText;
-    private MyClickableSpan(final String text) {
-        mText = text;
+    private class MyClickableSpan extends ClickableSpan {
+        private final String mText;
+
+        private MyClickableSpan(final String text) {
+            mText = text;
+        }
+
+        @Override
+        public void onClick(final View widget) {
+            Toast.makeText(ctx, mText, Toast.LENGTH_SHORT).show();
+        }
     }
-    @Override
-    public void onClick(final View widget) {
-        Toast.makeText(ctx,mText,Toast.LENGTH_SHORT).show();
-    }
-}
 }

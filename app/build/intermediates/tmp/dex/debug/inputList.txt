@@ -4,6 +4,7 @@ G:\Triperati\app\build\intermediates\pre-dexed\debug\annotations-77aa34cc0ed2cca
 G:\Triperati\app\build\intermediates\pre-dexed\debug\google-http-client-jackson2-1.19.0-8422c5cdc5fa27204265d15723fb23dddc1ab07c.jar
 G:\Triperati\app\build\intermediates\pre-dexed\debug\classes-958bfd1fbcde8bb745f114247e8107aaeead5dbd.jar
 G:\Triperati\app\build\intermediates\pre-dexed\debug\classes-f2b877c167d56be026ad1cefb2d54041b18ce298.jar
+G:\Triperati\app\build\intermediates\pre-dexed\debug\Android-SimpleLocation-70f807ab9e0d8875c47fe3862f91df009b33033f.jar
 G:\Triperati\app\build\intermediates\pre-dexed\debug\classes-ff47a00f3958f927a551263871eaa39b9c2eb4c0.jar
 G:\Triperati\app\build\intermediates\pre-dexed\debug\google-http-client-gson-1.19.0-4a68500ceede6393fb6eeda359c3a96eb9ce21f9.jar
 G:\Triperati\app\build\intermediates\pre-dexed\debug\google-http-client-android-1.19.0-7289b1e5f86b55684e574a4be7a640cddabb05b9.jar
@@ -12,7 +13,6 @@ G:\Triperati\app\build\intermediates\pre-dexed\debug\classes-3e2e6e7f683ac3eda6c
 G:\Triperati\app\build\intermediates\pre-dexed\debug\classes-7585ced87e4071fc04e9f29e73d739075f86c17f.jar
 G:\Triperati\app\build\intermediates\pre-dexed\debug\classes-adbc54c46adb9ede3224d38d0609aeed0855bf6a.jar
 G:\Triperati\app\build\intermediates\pre-dexed\debug\classes-90cf6a4b3a5c000e98384eb462ab304a24d474ec.jar
-G:\Triperati\app\build\intermediates\pre-dexed\debug\classes-77285fb9a51a63117b58dc563d73ab386402e725.jar
 G:\Triperati\app\build\intermediates\pre-dexed\debug\classes-a8204d20eaeed6e41e86e30034ffbdf65d31223a.jar
 G:\Triperati\app\build\intermediates\pre-dexed\debug\bolts-android-1.2.0-6a445eca358a0d9ee69a71f4582fa897128ff60b.jar
 G:\Triperati\app\build\intermediates\pre-dexed\debug\picasso-2.4.0-737212a8329f64370d59e109112042dcddcdb931.jar

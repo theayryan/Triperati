@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="io.nlopez.smartlocation"
     android:versionCode="20005"
-    android:versionName="3.0.8" >
+    android:versionName="3.0.8">
 
     <uses-sdk
         android:minSdkVersion="9"

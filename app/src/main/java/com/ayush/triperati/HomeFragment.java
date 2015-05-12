@@ -2,7 +2,6 @@ package com.ayush.triperati;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.Uri;
@@ -24,7 +23,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ayush.triperati.Pages;
 import com.ayush.triperati.store.SharedPreferencesCredentialStore;
 import com.parse.ParseGeoPoint;
 import com.parse.ParseObject;
@@ -47,13 +45,13 @@ import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshLayout;
 import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
 
 public class HomeFragment extends Fragment implements OnRefreshListener {
+    static int flag = 0;
     public String dialogresult;
     PullToRefreshLayout pullrefresh;
     Dialog dialog;
     CardArrayAdapter adapter_card;
     CardListView card_listview;
     Status status_final;
-
     View ll;
     FragmentActivity fa;
     Delivery delivery;
@@ -65,7 +63,6 @@ public class HomeFragment extends Fragment implements OnRefreshListener {
     Essentials tweet_pages;
     private SharedPreferences prefs;
     private TextView textView;
-    static int flag = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -86,13 +83,12 @@ public class HomeFragment extends Fragment implements OnRefreshListener {
         String[] check = new String[2];
 
         check = new SharedPreferencesCredentialStore(prefs).read();
-        if(!check[0].isEmpty() && !check[1].isEmpty()){
+        if (!check[0].isEmpty() && !check[1].isEmpty()) {
             pullrefresh.setRefreshing(true);
             onRefreshStarted(ll);
         }
         return ll;
     }
-
 
 
     @Override

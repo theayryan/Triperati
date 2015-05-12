@@ -23,9 +23,9 @@
             android:name="com.google.android.gms.maps.MapFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true" />
 
 
     </RelativeLayout>
@@ -35,64 +35,64 @@
         android:id="@+id/next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
         android:padding="10dp"
         fancy:defaultColor="#000000"
         fancy:focusColor="#313131"
         fancy:fontIconResource="&#xf054;"
         fancy:radius="30dp"
-        fancy:textColor="#FFFFFF"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"></mehdi.sakout.fancybuttons.FancyButton>
+        fancy:textColor="#FFFFFF"></mehdi.sakout.fancybuttons.FancyButton>
 
     <mehdi.sakout.fancybuttons.FancyButton
         android:id="@+id/previous"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:padding="10dp"
         fancy:defaultColor="#000000"
         fancy:focusColor="#313131"
         fancy:fontIconResource="&#xf053;"
         fancy:radius="30dp"
-        fancy:textColor="#FFFFFF"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        fancy:textColor="#FFFFFF" />
 
     <mehdi.sakout.fancybuttons.FancyButton
         android:id="@+id/send"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/map_container"
+        android:layout_toLeftOf="@+id/next"
+        android:layout_toStartOf="@+id/next"
         android:padding="10dp"
         fancy:defaultColor="#d3d3d3"
         fancy:focusColor="#313131"
         fancy:fontIconResource="&#xf061;"
         fancy:radius="30dp"
-        fancy:textColor="#FFFFFF"
-        android:layout_above="@+id/map_container"
-        android:layout_toLeftOf="@+id/next"
-        android:layout_toStartOf="@+id/next"></mehdi.sakout.fancybuttons.FancyButton>
+        fancy:textColor="#FFFFFF"></mehdi.sakout.fancybuttons.FancyButton>
 
     <ViewFlipper
         android:id="@+id/viewFlipper"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/map_container" />
 
     <EditText
+        android:id="@+id/JourneyBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/JourneyBox"
-        android:hint="Journey Tag"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/previous"
         android:layout_toLeftOf="@+id/send"
-        android:layout_toStartOf="@+id/send" />
+        android:layout_toRightOf="@+id/previous"
+        android:layout_toStartOf="@+id/send"
+        android:hint="Journey Tag" />
 
 
 </RelativeLayout>

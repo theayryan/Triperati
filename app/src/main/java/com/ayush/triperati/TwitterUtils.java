@@ -86,9 +86,9 @@ public class TwitterUtils {
         StatusUpdate statusUpdate = new StatusUpdate(msg);
         statusUpdate.setLocation(location);
         statusUpdate.displayCoordinates(true);
-        Log.d("Location in the tweet", location.getLatitude()+" "+location.getLongitude());
+        Log.d("Location in the tweet", location.getLatitude() + " " + location.getLongitude());
         Status status = twitter.updateStatus(statusUpdate);
-        Log.d("STATUS LOCATION",status.getText()+" "+status.getGeoLocation());
+        Log.d("STATUS LOCATION", status.getText() + " " + status.getGeoLocation());
 
     }
 }

@@ -1,6 +1,5 @@
 package com.ayush.triperati;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -51,14 +50,13 @@ import java.util.List;
 
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardHeader;
-import it.gmariotti.cardslib.library.view.CardView;
 import it.gmariotti.cardslib.library.view.CardViewNative;
 import mehdi.sakout.fancybuttons.FancyButton;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 import twitter4j.auth.AccessToken;
 
-public class MapFragment extends Fragment  {
+public class MapFragment extends Fragment {
 
     public int counter = 0;
     FragmentActivity fa;
@@ -99,15 +97,14 @@ public class MapFragment extends Fragment  {
         StrictMode.setThreadPolicy(policy);
         mViewFlipper = (ViewFlipper) this_fragment.findViewById(R.id.viewFlipper);
         JourneyBox = (EditText) this_fragment.findViewById(R.id.JourneyBox);
-        Send=(FancyButton) this_fragment.findViewById(R.id.send);
+        Send = (FancyButton) this_fragment.findViewById(R.id.send);
         Send.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if(JourneyBox.getText()!=null){
+                if (JourneyBox.getText() != null) {
                     goog_map.clear();
                     new Card_builder().execute(JourneyBox.getText().toString());
-                }
-                else
-                    Toast.makeText(fa,"No Text Found",Toast.LENGTH_SHORT).show();
+                } else
+                    Toast.makeText(fa, "No Text Found", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -146,7 +143,6 @@ public class MapFragment extends Fragment  {
     }
 
 
-
     public void markerSwitch() {
         for (int i = 0; i < points.size(); i++) {
             if (i == counter) {
@@ -159,9 +155,6 @@ public class MapFragment extends Fragment  {
                 goog_map.addMarker(new MarkerOptions().position(points.get(i)).visible(true));
         }
     }
-
-
-
 
 
     @Override
@@ -324,12 +317,11 @@ public class MapFragment extends Fragment  {
 
                             }
                             BoundaryConditions boundaryConditions = new BoundaryConditions(points);
-                            LatLngBounds latLngBounds = new LatLngBounds(boundaryConditions.getMinimumLatlng(),boundaryConditions.getMaximumLatlng());
+                            LatLngBounds latLngBounds = new LatLngBounds(boundaryConditions.getMinimumLatlng(), boundaryConditions.getMaximumLatlng());
                             goog_map.moveCamera(CameraUpdateFactory.newLatLngZoom(latLngBounds.getCenter(), 10));
 
-                        }
-                        else
-                            Toast.makeText(fa,"No Journey named "+JourneyBox.getText().toString(),Toast.LENGTH_SHORT).show();
+                        } else
+                            Toast.makeText(fa, "No Journey named " + JourneyBox.getText().toString(), Toast.LENGTH_SHORT).show();
                     }
 
                 }
@@ -388,9 +380,6 @@ public class MapFragment extends Fragment  {
         }
 
     }
-
-
-
 
 
 }

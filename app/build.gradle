@@ -1,18 +1,13 @@
-
 apply plugin: 'com.android.application'
 
 
 android {
 
-    //dexOptions {
-     //   javaMaxHeapSize "4g"
-    //}
     compileSdkVersion 21
     buildToolsVersion "21.1.2"
     defaultConfig {
         applicationId 'com.ayush.triperati'
         minSdkVersion 15
-        //multiDexEnabled = true
         targetSdkVersion 21
         compileOptions {
             sourceCompatibility JavaVersion.VERSION_1_5
@@ -33,7 +28,6 @@ android {
 
 
 dependencies {
-
     compile 'org.twitter4j:twitter4j-core:4.0.2'
     //compile 'com.google.oauth-client:google-oauth-client:1.19.0'
     compile 'com.github.gabrielemariotti.cards:cardslib-core:2.0.1'
@@ -59,5 +53,5 @@ dependencies {
     compile files('G:/Triperati/libs/kinvey-android-lib-2.7.2.jar')
     compile files('G:/Triperati/libs/kinvey-java-2.7.2.jar')
     //compile files('G:/Triperati/libs/signpost-core-1.2.1.2.jar')
-
+    compile files('G:/Triperati/libs/Android-SimpleLocation.jar')
 }

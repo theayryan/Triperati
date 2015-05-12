@@ -93,6 +93,7 @@
     <orderEntry type="library" exported="" name="support-v4-21.0.2" level="project" />
     <orderEntry type="library" exported="" name="google-http-client-gson-1.19.0" level="project" />
     <orderEntry type="library" exported="" name="Parse-1.8.2" level="project" />
+    <orderEntry type="library" exported="" name="Android-SimpleLocation" level="project" />
     <orderEntry type="library" exported="" name="guava-18.0" level="project" />
     <orderEntry type="library" exported="" name="postoffice-1.1.9" level="project" />
     <orderEntry type="library" exported="" name="google-http-client-android-1.19.0" level="project" />
