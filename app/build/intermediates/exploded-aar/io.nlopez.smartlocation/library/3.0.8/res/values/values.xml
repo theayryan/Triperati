@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/Users/mrm/Documents/workspace/smart-location-lib/library/src/main/res/values/ints.xml -->
+    <eat-comment/>
+    <integer name="gms_version">@integer/google_play_services_version</integer>
+</resources>

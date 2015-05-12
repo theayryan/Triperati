@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="FancyButtonsAttrs"><attr format="color" name="defaultColor"/><attr format="string" name="text"/><attr format="color" name="textColor"/><attr format="string" name="textFont"/><attr format="string" name="iconFont"/><attr format="dimension" name="textSize"/><attr format="integer" name="iconResource"/><attr format="string" name="fontIconResource"/><attr format="dimension" name="fontIconSize"/><attr format="enum" name="iconPosition"><enum name="left" value="1"/><enum name="right" value="2"/><enum name="top" value="3"/><enum name="bottom" value="4"/></attr><attr format="color" name="borderColor"/><attr format="dimension" name="borderWidth"/><attr format="color" name="focusColor"/><attr format="dimension" name="radius"/></declare-styleable>
+    <!-- From: file:/home/medyo/AndroidStudioProjects/fancybuttons/fancybuttons_library/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <!-- From: file:/home/medyo/AndroidStudioProjects/fancybuttons/fancybuttons_library/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="app_name">FancyButtons</string>
+</resources>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="46dp"
+            android:id="@+id/card_expand_inner_simple_title"
+            style="@style/card.native.expand_simple_title"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="#ff000000"
+            android:text="Trips"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/addjourney"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            fancy:defaultColor="#d3d3d3"
+            fancy:focusColor="#313131"
+            fancy:fontIconResource="&#xf067;"
+            fancy:radius="30dp"
+            fancy:textColor="#FFFFFF"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:background="#ffd1232f"></mehdi.sakout.fancybuttons.FancyButton>
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/list_item_tag_cloud"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        style="@style/tag_cloud"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+</LinearLayout>
