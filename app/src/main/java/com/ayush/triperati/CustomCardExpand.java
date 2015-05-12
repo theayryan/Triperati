@@ -120,6 +120,7 @@ public class CustomCardExpand extends CardExpand {
     }
 
     private void makelistdialog() {
+        //ArrayList<String> tripNames =new BackendHandler(ctx).getAllTripTags();
         final CharSequence[] charSequence;
         charSequence = new CharSequence[trips.size() + 1];
         for (int i = 0; i < trips.size() + 1; i++) {
@@ -175,4 +176,5 @@ public class CustomCardExpand extends CardExpand {
             Toast.makeText(ctx, mText, Toast.LENGTH_SHORT).show();
         }
     }
+
 }

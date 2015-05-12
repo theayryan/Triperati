@@ -17,14 +17,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ayush.triperati.store.SharedPreferencesCredentialStore;
 import com.parse.ParseGeoPoint;
 import com.parse.ParseObject;
-import com.r0adkll.postoffice.model.Delivery;
-import com.r0adkll.postoffice.model.Design;
 
 import java.util.ArrayList;
 
@@ -35,31 +32,23 @@ import it.gmariotti.cardslib.library.internal.ViewToClickToExpand;
 import it.gmariotti.cardslib.library.view.CardListView;
 import twitter4j.GeoLocation;
 import twitter4j.ResponseList;
-import twitter4j.Status;
 import uk.co.senab.actionbarpulltorefresh.library.ActionBarPullToRefresh;
 import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshLayout;
 import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
 
 public class UserFragment extends Fragment implements OnRefreshListener {
     static int flag = 0;
-    public String dialogresult;
     PullToRefreshLayout pullrefresh;
     Dialog dialog;
     CardArrayAdapter adapter_card;
     CardListView card_listview;
-    Status status_final;
     View ll;
     FragmentActivity fa;
-    Delivery delivery;
-    Design mtrlDesign = Design.MATERIAL_DARK;
     ArrayList<Essentials> timeline;
-    int current_index;
     int current_page;
-    Pages page;
     Essentials tweet_pages;
     ViewToClickToExpand viewToClickToExpand;
     private SharedPreferences prefs;
-    private TextView textView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -73,7 +62,6 @@ public class UserFragment extends Fragment implements OnRefreshListener {
         dialog = new Dialog(fa);
         current_page = 1;
         ActionBarPullToRefresh.from(fa).allChildrenArePullable().listener(this).setup(pullrefresh);
-        textView = (TextView) ll.findViewById(R.id.response_code);
         timeline = new ArrayList<Essentials>();
         card_listview = (CardListView) ll.findViewById(R.id.myList);
         tweet_pages = new Essentials();

@@ -63,22 +63,16 @@ public class MapFragment extends Fragment {
     Design mtrlDesign = Design.MATERIAL_DARK;
     Delivery delivery;
     GoogleMap goog_map;
-    Location loc;
-    int count;
-
     twitter4j.Twitter twitter;
     SupportMapFragment fragment;
     ArrayList<LatLng> points;
     ArrayList<Points> pointsArrayList;
     CardViewNative cardView;
     Card card;
-    float lastX;
     EditText JourneyBox;
     View this_fragment;
     FancyButton Send;
-    Location current_location;
     private ViewFlipper mViewFlipper;
-    private GestureDetector mGestureDetector;
     private SharedPreferences prefs;
 
     @Override
@@ -365,18 +359,6 @@ public class MapFragment extends Fragment {
 
             mViewFlipper.setInAnimation(fa, android.R.anim.fade_in);
             mViewFlipper.setOutAnimation(fa, android.R.anim.fade_out);
-            /*final GestureDetector gestureDetector;
-            gestureDetector = new GestureDetector(
-                    new MyGestureDetector());
-                    mViewFlipper = (ViewFlipper) this_fragment.findViewById(R.id.viewFlipper);
-                    mViewFlipper.setOnTouchListener(new View.OnTouchListener() {
-                    @Override
-                    public boolean onTouch(final View view, final MotionEvent event) {
-                        gestureDetector.onTouchEvent(event);
-                        return true;
-                    }
-                });*/
-
         }
 
     }

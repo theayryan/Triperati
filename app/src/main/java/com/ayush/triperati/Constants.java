@@ -12,5 +12,6 @@ public class Constants {
     public static final String AUTHORIZE_URL = "https://api.twitter.com/oauth/authorize";
 
     public static final String OAUTH_CALLBACK_URL = "triperati://main";
+    public static final String NODE_COLLECTION = "tripNode";
 }
 

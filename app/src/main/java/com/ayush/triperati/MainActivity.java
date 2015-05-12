@@ -45,7 +45,6 @@ public class MainActivity extends FragmentActivity implements
 
     SharedPreferences prefs;
     Delivery delivery;
-    String provider1;
     Design mtrlDesign = Design.MATERIAL_DARK;
     CommonsHttpOAuthConsumer consumer;
     OAuthProvider provider;
