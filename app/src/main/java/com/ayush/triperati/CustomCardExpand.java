@@ -9,6 +9,7 @@ import android.text.InputType;
 import android.text.SpannableString;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -22,6 +23,7 @@ import com.r0adkll.postoffice.model.Design;
 import com.r0adkll.postoffice.styles.EditTextStyle;
 import com.r0adkll.postoffice.styles.ListStyle;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -41,28 +43,36 @@ public class CustomCardExpand extends CardExpand {
     String dialogresult;
     ArrayList<String> trips;
     Design mtrlDesign = Design.MATERIAL_DARK;
+    ArrayList<String>[] allTripTagsWRTtweet;
     public CustomCardExpand(Context context, int i, FragmentManager fragmentManager, Status status) {
         super(context, R.layout.card_expand_layout);
         ctx = context;
         this.fragmentManager = fragmentManager;
         this.status = status;
         dialogresult = new String();
+        allTripTagsWRTtweet = new BackendHandler(ctx).getAllTripTagsWRTtweet(status.getId());
     }
 
     @Override
     public void setupInnerViewElements(ViewGroup parent, View view) {
-
-        trips = new ArrayList<String>();
-        trips.add("Delhi");
-        trips.add("Paris");
+        StringBuffer tags=new StringBuffer();
+        if(allTripTagsWRTtweet[0]!=null) {
+            trips = allTripTagsWRTtweet[0];
+            for(int i = 0; i< trips.size();i++){
+                tags.append(trips.get(i)+", ");
+            }
+        }
+        else
+            tags.append("No Trips");
+        String tagString = tags.toString();
         TextView txtview = (TextView) parent.findViewById(R.id.list_item_tag_cloud);
-        makeTagLinks("Delhi, Paris", txtview);
+        makeTagLinks(tagString, txtview);
         FancyButton addButton = (FancyButton) parent.findViewById(R.id.addjourney);
         addButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                makelistdialog();
-            }
-        });
+                public void onClick(View v) {
+                    makelistdialog();
+                }
+            });
 
     }
 
@@ -96,9 +106,13 @@ public class CustomCardExpand extends CardExpand {
                                 //Toast.makeText(fa, "Text was accepted: " + text, Toast.LENGTH_SHORT).show();
                                 dialogresult = new String();
                                 dialogresult = text;
-                                if (status.getGeoLocation() != null)
-                                    save_data(status.getId(), dialogresult, status.getGeoLocation());
-                                else
+                                if (status.getGeoLocation() != null) {
+                                    ArrayList<Double> location = new ArrayList<Double>();
+                                    location.add(status.getGeoLocation().getLongitude());
+                                    location.add(status.getGeoLocation().getLatitude());
+                                    Log.d("Location",location.get(0)+" "+location.get(1));
+                                    new BackendHandler(ctx).addData(dialogresult, status.getId(),location);
+                                } else
                                     Toast.makeText(ctx, "Location information not available", Toast.LENGTH_SHORT).show();
                             }
                         }).build())
@@ -120,29 +134,42 @@ public class CustomCardExpand extends CardExpand {
     }
 
     private void makelistdialog() {
-        //ArrayList<String> tripNames =new BackendHandler(ctx).getAllTripTags();
+        ArrayList<String> tripsPossible = allTripTagsWRTtweet[1];
         final CharSequence[] charSequence;
-        charSequence = new CharSequence[trips.size() + 1];
-        for (int i = 0; i < trips.size() + 1; i++) {
-            if (i == 0) {
-                charSequence[i] = "Add to new trip";
-            } else
-                charSequence[i] = trips.get(i - 1);
-        }
-        Delivery delivery = PostOffice.newSimpleListMail(ctx, "Add to trip", mtrlDesign, charSequence, new ListStyle.OnItemAcceptedListener<CharSequence>() {
+        if(tripsPossible!=null) {
 
-            public void onItemAccepted(CharSequence s, int i) {
+            charSequence = new CharSequence[tripsPossible.size() + 1];
+            for (int i = 0; i < trips.size() + 1; i++) {
                 if (i == 0) {
-                    makenewtripdialog();
-                } else {
-                    if (status.getGeoLocation() != null)
-                        save_data(status.getId(), s.toString(), status.getGeoLocation());
-                    else
-                        Toast.makeText(ctx, "Location information not available", Toast.LENGTH_SHORT).show();
-                }
+                    charSequence[i] = "Add to new trip";
+                } else
+                    charSequence[i] = trips.get(i - 1);
             }
-        });
-        delivery.show(fragmentManager);
+
+            Delivery delivery = PostOffice.newSimpleListMail(ctx, "Add to trip", mtrlDesign, charSequence, new ListStyle.OnItemAcceptedListener<CharSequence>() {
+
+                public void onItemAccepted(CharSequence s, int i) {
+                    if (i == 0) {
+                        makenewtripdialog();
+                    } else {
+                        if (status.getGeoLocation() != null) {
+                            ArrayList<Double> location = new ArrayList<Double>();
+                            location.add(status.getGeoLocation().getLongitude());
+                            location.add(status.getGeoLocation().getLatitude());
+                            Log.d("Location", location.get(0) + " " + location.get(1));
+                            new BackendHandler(ctx).addData(s.toString(), status.getId(), location);
+                        }
+                        else
+                            Toast.makeText(ctx, "Location information not available", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+            delivery.show(fragmentManager);
+        }
+        else{
+            Toast.makeText(ctx,"Already part of all existing trips",Toast.LENGTH_SHORT).show();
+            makenewtripdialog();
+        }
     }
 
     private void makeTagLinks(final String text, final TextView tv) {

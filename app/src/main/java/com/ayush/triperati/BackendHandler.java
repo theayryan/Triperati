@@ -25,7 +25,10 @@ public class BackendHandler {
     }
 
     void addData(final String tripName, long tweetID, ArrayList<Double> tweetLocation) {
-        TripNode tripNode = new TripNode(tripName, tweetID, tweetLocation);
+        TripNode tripNode = new TripNode();
+        tripNode.setTripName(tripName);
+        tripNode.setTweetID(tweetID);
+        tripNode.setTweetLocation(tweetLocation);
         AsyncAppData<TripNode> newTripNode = kinveyClient.appData(Constants.NODE_COLLECTION, TripNode.class);
         newTripNode.save(tripNode, new KinveyClientCallback<TripNode>() {
             @Override
@@ -78,5 +81,24 @@ public class BackendHandler {
             }
         }
         return allTripTags;
+    }
+
+    ArrayList<String>[] getAllTripTagsWRTtweet(long tweetID){
+        ArrayList<String>[] allTripTagsWRTtweet = new ArrayList[2];
+        ArrayList<String> allTripTags = getAllTripTags();
+        for(int i = 0;i<allTripTags.size();i++){
+            String tag= new String();
+            for(int j =0;j<allTripNodes.length;j++){
+                if(allTripNodes[i].getTweetID()==tweetID){
+                    tag=allTripNodes[i].getTripName();
+                    break;
+                }
+            }
+            if(tag!=null)
+                allTripTagsWRTtweet[0].add(tag);
+            else
+                allTripTagsWRTtweet[1].add(tag);
+        }
+        return  allTripTagsWRTtweet;
     }
 }

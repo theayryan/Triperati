@@ -19,13 +19,7 @@ public class TripNode extends GenericJson {
     @Key("_geoloc")
     ArrayList<Double> tweetLocation;
 
-    TripNode(){}
-
-    TripNode(String tripName, Long tweetID, ArrayList<Double> tweetLocation){
-        this.tripName=tripName;
-        this.tweetID=tweetID;
-        this.tweetLocation.addAll(tweetLocation);
-    }
+    public TripNode(){}
 
     public String getTripName() {
         return tripName;
