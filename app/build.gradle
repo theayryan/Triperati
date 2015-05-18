@@ -28,12 +28,12 @@ android {
 
 
 dependencies {
+    compile 'com.jpardogo.materialtabstrip:library:1.0.9'
     compile 'org.twitter4j:twitter4j-core:4.0.2'
     //compile 'com.google.oauth-client:google-oauth-client:1.19.0'
     compile 'com.github.gabrielemariotti.cards:cardslib-core:2.0.1'
     //Optional for built-in cards
     compile 'com.github.gabrielemariotti.cards:cardslib-cards:2.0.1'
-    compile 'com.github.castorflex.smoothprogressbar:library:1.0.0'
     compile 'com.github.chrisbanes.actionbarpulltorefresh:library:0.9.9'
     compile 'com.r0adkll:postoffice:1.1.9'
     //compile 'com.google.code.gson:gson:1.7.2'

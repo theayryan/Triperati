@@ -1,14 +1,12 @@
 package com.ayush.triperati;
 
-import android.app.ActionBar;
-import android.app.ActionBar.Tab;
 import android.app.Dialog;
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -22,12 +20,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.astuetz.PagerSlidingTabStrip;
 import com.ayush.triperati.store.CredentialStore;
 import com.ayush.triperati.store.SharedPreferencesCredentialStore;
 import com.kinvey.android.Client;
 import com.kinvey.android.callback.KinveyUserCallback;
 import com.kinvey.java.User;
-import com.parse.ParseTwitterUtils;
 import com.parse.signpost.OAuth;
 import com.parse.signpost.OAuthProvider;
 import com.parse.signpost.basic.DefaultOAuthProvider;
@@ -40,8 +38,7 @@ import com.r0adkll.postoffice.styles.EditTextStyle;
 import im.delight.android.location.SimpleLocation;
 import twitter4j.GeoLocation;
 
-public class MainActivity extends FragmentActivity implements
-        ActionBar.TabListener {
+public class MainActivity extends FragmentActivity  {
 
     SharedPreferences prefs;
     Delivery delivery;
@@ -51,7 +48,7 @@ public class MainActivity extends FragmentActivity implements
     Client kinveyclient;
     private ViewPager viewPager;
     private TabsPagerAdapter mAdapter;
-    private ActionBar actionBar;
+    //private ActionBar actionBar;
     private SimpleLocation simpleLocation;
     private String[] tabs = {"Home Timeline", "User Timeline", "Journey Map"};
 
@@ -66,23 +63,17 @@ public class MainActivity extends FragmentActivity implements
         simpleLocation = new SimpleLocation(this);
 
         viewPager = (ViewPager) findViewById(R.id.pager);
-        actionBar = getActionBar();
+
         mAdapter = new TabsPagerAdapter(getSupportFragmentManager());
         viewPager.setOffscreenPageLimit(3);
         viewPager.setAdapter(mAdapter);
-        actionBar.setHomeButtonEnabled(false);
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        PagerSlidingTabStrip slidingTabStrip = (PagerSlidingTabStrip) findViewById(R.id.tabs);
+        slidingTabStrip.setViewPager(viewPager);
 
         this.prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        // Adding Tabs
-        for (String tab_name : tabs) {
-            actionBar.addTab(actionBar.newTab().setText(tab_name)
-                    .setTabListener(this));
-        }
         String[] check = new String[2];
 
         check = new SharedPreferencesCredentialStore(prefs).read();
-        ParseTwitterUtils.initialize(Constants.API_KEY, Constants.API_SECRET);
         if (check[0].isEmpty() && check[1].isEmpty()) {
 
 
@@ -90,25 +81,15 @@ public class MainActivity extends FragmentActivity implements
         /**
          * on swiping the viewpager make respective tab selected
          * */
-        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        slidingTabStrip.setTextSize(50);
+        slidingTabStrip.setAllCaps(true);
+        slidingTabStrip.setIndicatorColor(getResources().getColor(R.color.appMain));
+        slidingTabStrip.setIndicatorHeight(15);
+        slidingTabStrip.setTextColor(getResources().getColor(R.color.appMainLight));
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/Vonique64.ttf");
+        slidingTabStrip.setTypeface(typeface,Typeface.BOLD);
 
-
-            public void onPageSelected(int position) {
-                // on changing the page
-                // make respected tab selected
-                actionBar.setSelectedNavigationItem(position);
-            }
-
-
-            public void onPageScrolled(int arg0, float arg1, int arg2) {
-            }
-
-
-            public void onPageScrollStateChanged(int arg0) {
-            }
-        });
     }
-
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
@@ -142,19 +123,6 @@ public class MainActivity extends FragmentActivity implements
         super.onResume();
         simpleLocation.beginUpdates();
     }
-
-    public void onTabReselected(Tab tab, FragmentTransaction ft) {
-    }
-
-    public void onTabSelected(Tab tab, FragmentTransaction ft) {
-        // on tab selected
-        // show respected fragment view
-        viewPager.setCurrentItem(tab.getPosition());
-    }
-
-    public void onTabUnselected(Tab tab, FragmentTransaction ft) {
-    }
-
     @Override
     protected void onStop() {
         super.onStop();

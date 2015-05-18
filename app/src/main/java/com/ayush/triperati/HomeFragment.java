@@ -199,51 +199,7 @@ public class HomeFragment extends Fragment implements OnRefreshListener {
                     MyThumbnail pic = new MyThumbnail(fa, tweet_data.getPicture());
                     pic.setExternalUsage(true);
                     sample.addCardThumbnail(pic);
-                    sample.isClickable();
-                    sample.setOnClickListener(new Card.OnCardClickListener() {
-                        public void onClick(Card card, View view) {
-                            delivery = PostOffice.newMail(fa)
-                                    .setTitle("Journey Tag")
-                                    .setThemeColor(Color.DKGRAY)
-                                    .setDesign(mtrlDesign)
-                                    .showKeyboardOnDisplay(true)
-                                    .setButtonTextColor(Dialog.BUTTON_POSITIVE, R.color.blue_500)
-                                    .setButton(Dialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            dialog.dismiss();
-                                        }
-                                    })
-                                    .setButton(Dialog.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            dialog.cancel();
-                                        }
-                                    })
-                                    .setStyle(new EditTextStyle.Builder(fa)
-                                            .setHint("Tag Name")
-                                            .setInputType(InputType.TYPE_TEXT_VARIATION_NORMAL)
 
-                                            .setOnTextAcceptedListener(new EditTextStyle.OnTextAcceptedListener() {
-                                                @Override
-                                                public void onAccepted(String text) {
-
-                                                    //Toast.makeText(fa, "Text was accepted: " + text, Toast.LENGTH_SHORT).show();
-                                                    dialogresult = new String();
-                                                    dialogresult = text;
-                                                    if (status.getGeoLocation() != null)
-                                                        save_data(status.getId(), dialogresult, status.getGeoLocation());
-                                                    else
-                                                        Toast.makeText(fa, "Location information not available", Toast.LENGTH_SHORT).show();
-                                                }
-                                            }).build())
-
-                                    .build();
-
-
-                            delivery.show(fa.getFragmentManager());
-                        }
-                    });
                     cards.add(sample);
                 }
                 tweet_pages.setPage(cards);

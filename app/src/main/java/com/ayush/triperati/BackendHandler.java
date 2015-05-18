@@ -1,6 +1,7 @@
 package com.ayush.triperati;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.kinvey.android.AsyncAppData;
@@ -52,6 +53,7 @@ public class BackendHandler {
                 allTripNodes = new TripNode[tripNodes.length];
                 for (int i = 0; i < tripNodes.length; i++) {
                     allTripNodes[i] = tripNodes[i];
+                    Log.d("Received data",allTripNodes[i].getTripName()+" "+allTripNodes[i].getTweetLocation());
                 }
             }
 
@@ -76,6 +78,7 @@ public class BackendHandler {
                         flag++;
                 }
                 if (flag == 0) {
+                    Log.d("Add tag",tripTag);
                     allTripTags.add(tripTag);
                 }
             }
@@ -94,6 +97,7 @@ public class BackendHandler {
                     break;
                 }
             }
+            Log.d("Add tag",tag);
             if(tag!=null)
                 allTripTagsWRTtweet[0].add(tag);
             else

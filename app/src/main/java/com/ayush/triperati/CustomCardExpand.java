@@ -23,7 +23,6 @@ import com.r0adkll.postoffice.model.Design;
 import com.r0adkll.postoffice.styles.EditTextStyle;
 import com.r0adkll.postoffice.styles.ListStyle;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -44,13 +43,15 @@ public class CustomCardExpand extends CardExpand {
     ArrayList<String> trips;
     Design mtrlDesign = Design.MATERIAL_DARK;
     ArrayList<String>[] allTripTagsWRTtweet;
+    BackendHandler backendHandler;
     public CustomCardExpand(Context context, int i, FragmentManager fragmentManager, Status status) {
         super(context, R.layout.card_expand_layout);
         ctx = context;
         this.fragmentManager = fragmentManager;
         this.status = status;
         dialogresult = new String();
-        allTripTagsWRTtweet = new BackendHandler(ctx).getAllTripTagsWRTtweet(status.getId());
+        backendHandler = new BackendHandler(ctx);
+        allTripTagsWRTtweet = backendHandler.getAllTripTagsWRTtweet(status.getId());
     }
 
     @Override
@@ -111,7 +112,7 @@ public class CustomCardExpand extends CardExpand {
                                     location.add(status.getGeoLocation().getLongitude());
                                     location.add(status.getGeoLocation().getLatitude());
                                     Log.d("Location",location.get(0)+" "+location.get(1));
-                                    new BackendHandler(ctx).addData(dialogresult, status.getId(),location);
+                                    backendHandler.addData(dialogresult, status.getId(),location);
                                 } else
                                     Toast.makeText(ctx, "Location information not available", Toast.LENGTH_SHORT).show();
                             }
@@ -157,7 +158,7 @@ public class CustomCardExpand extends CardExpand {
                             location.add(status.getGeoLocation().getLongitude());
                             location.add(status.getGeoLocation().getLatitude());
                             Log.d("Location", location.get(0) + " " + location.get(1));
-                            new BackendHandler(ctx).addData(s.toString(), status.getId(), location);
+                            backendHandler.addData(s.toString(), status.getId(), location);
                         }
                         else
                             Toast.makeText(ctx, "Location information not available", Toast.LENGTH_SHORT).show();
