@@ -8,16 +8,17 @@ import android.support.v4.app.FragmentPagerAdapter;
  * Created by yushrox on 19-12-2014.
  */
 public class TabsPagerAdapter extends FragmentPagerAdapter {
-    private CharSequence[] tabs = {"The Triperati", "Me", "The Trips"};
+    private CharSequence[] tabs = {Constants.EVERYONE, Constants.ME, Constants.TRIPS};
+
+    public TabsPagerAdapter(FragmentManager fm) {
+        super(fm);
+    }
+
     @Override
     public CharSequence getPageTitle(int position) {
 
         return tabs[position];
 
-    }
-
-    public TabsPagerAdapter(FragmentManager fm) {
-        super(fm);
     }
 
     @Override

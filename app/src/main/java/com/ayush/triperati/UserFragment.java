@@ -20,8 +20,6 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.ayush.triperati.store.SharedPreferencesCredentialStore;
-import com.parse.ParseGeoPoint;
-import com.parse.ParseObject;
 
 import java.util.ArrayList;
 
@@ -30,7 +28,6 @@ import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
 import it.gmariotti.cardslib.library.internal.CardHeader;
 import it.gmariotti.cardslib.library.internal.ViewToClickToExpand;
 import it.gmariotti.cardslib.library.view.CardListView;
-import twitter4j.GeoLocation;
 import twitter4j.ResponseList;
 import uk.co.senab.actionbarpulltorefresh.library.ActionBarPullToRefresh;
 import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshLayout;
@@ -95,19 +92,6 @@ public class UserFragment extends Fragment implements OnRefreshListener {
 
     private void clearCredentials() {
         new SharedPreferencesCredentialStore(prefs).clearCredentials();
-    }
-
-    /**
-     * Performs an authorized API call.
-     */
-    void save_data(final Long item_id, final String data, GeoLocation location) {
-        ParseObject journey_data = new ParseObject("journey_data");
-        journey_data.put("tweet_id", item_id);
-        journey_data.put("journey_tag", data);
-        ParseGeoPoint geoPoint = new ParseGeoPoint(location.getLatitude(), location.getLongitude());
-        journey_data.put("location", geoPoint);
-        journey_data.saveInBackground();
-        //Toast.makeText(fa, data + " " + Long.toString(item_id), Toast.LENGTH_LONG).show();
     }
 
     public void onRefreshStarted(View view) {
@@ -176,15 +160,16 @@ public class UserFragment extends Fragment implements OnRefreshListener {
 
                     Log.d("tweet", status.getCreatedAt() + " " + status.getUser().getName() + " " + status.getText());
                     timeline.add(tweet_data);
-                    Card sample = new Card(fa);
-                    CardHeader header = new CardHeader(fa);
+                    Card sample = new CustomCard(getActivity());
+                    CardHeader header = new CustomCardHeader(getActivity());
                     header.setTitle(tweet_data.getHandle_name());
                     sample.setTitle(tweet_data.getTweet());
-                    CustomCardExpand customCardExpand = new CustomCardExpand(fa, 10, fa.getFragmentManager(), status);
+                    CustomCardExpand customCardExpand = new CustomCardExpand(getActivity(), 10, getActivity().getFragmentManager(), status);
                     //customCardExpand.setTitle("Trips");
+                    header.setButtonExpandVisible(true);
                     sample.addCardExpand(customCardExpand);
                     sample.addCardHeader(header);
-                    MyThumbnail pic = new MyThumbnail(fa, tweet_data.getPicture());
+                    MyThumbnail pic = new MyThumbnail(getActivity(), tweet_data.getPicture());
                     pic.setExternalUsage(true);
                     sample.addCardThumbnail(pic);
                     sample.setViewToClickToExpand(viewToClickToExpand);

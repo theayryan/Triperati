@@ -1,215 +1,229 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" >
+<items version="2">
 
-    <item
-        jar="G:\Triperati\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\21.0.0\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="7d2525cba8ed61fff102977caed964fc22061e34">
-        <dex dex="G:\Triperati\app\build\intermediates\pre-dexed\debug\classes-3e2e6e7f683ac3eda6c19e24fd89112cf03d18f6.jar" />
+    <item jar="/home/ayushb/Triperati/app/libs/kinvey-android-lib-2.7.2.jar" jumboMode="false"
+        revision="21.1.2" sha1="50ef37eba372c77e5ac1ae4a17e3b4b620085a8e">
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/kinvey-android-lib-2.7.2-d1e29a1c4ea9b1a0402f310047cd4dca34b8adca.jar" />
     </item>
     <item
-        jar="C:\Users\yushrox\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-android\1.2.0\6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd\bolts-android-1.2.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd">
-        <dex dex="G:\Triperati\app\build\intermediates\pre-dexed\debug\bolts-android-1.2.0-6a445eca358a0d9ee69a71f4582fa897128ff60b.jar" />
+        jar="/home/ayushb/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
+        jumboMode="false" revision="21.1.2" sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-6c0d684848e34ef6f496be9c5c387593ce7e16bb.jar" />
     </item>
     <item
-        jar="G:\Triperati\libs\google-http-client-jackson2-1.19.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="81dbf9795d387d5e80e55346582d5f2fb81a42eb">
-        <dex dex="G:\Triperati\app\build\intermediates\pre-dexed\debug\google-http-client-jackson2-1.19.0-8422c5cdc5fa27204265d15723fb23dddc1ab07c.jar" />
+        jar="/home/ayushb/Triperati/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.0.1/classes.jar"
+        jumboMode="false" revision="21.1.2" sha1="81d6467247ced8a5d51f8ff73a6595d517eddba6">
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/classes-dd8a91fee0ccf0d382add7194d04bdff38d6f181.jar" />
+    </item>
+    <item jar="/home/ayushb/Triperati/app/libs/google-http-client-gson-1.19.0.jar" jumboMode="false"
+        revision="21.1.2" sha1="b3cdefb990d5212bb2a130525b20e2c44aeffc4c">
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/google-http-client-gson-1.19.0-07d752c7acab75d4ec38a9c4be020c8e4b6de8a0.jar" />
+    </item>
+    <item jar="/home/ayushb/Triperati/app/libs/google-http-client-1.19.0.jar" jumboMode="false"
+        revision="21.1.2" sha1="cdca49ad0977c040f603478aa2e16b2775c8fec6">
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/google-http-client-1.19.0-903e76513e444fb657fa7b842553493b99168bff.jar" />
     </item>
     <item
-        jar="G:\Triperati\libs\google-http-client-1.19.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="cdca49ad0977c040f603478aa2e16b2775c8fec6">
-        <dex dex="G:\Triperati\app\build\intermediates\pre-dexed\debug\google-http-client-1.19.0-aff55da000a2b334db737edac2c0bf9f37853f18.jar" />
+        jar="/home/ayushb/Triperati/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
+        jumboMode="false" revision="21.1.2" sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-1c5bf71a0b54b494e67b3927568564b6a9dd8836.jar" />
+    </item>
+    <item jar="/home/ayushb/Triperati/app/libs/jackson-core-2.1.3.jar" jumboMode="false"
+        revision="21.1.2" sha1="f6c3aed1cdfa21b5c1737c915186ea93a95a58bd">
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/jackson-core-2.1.3-c6c06e7b39f5be381f18284a88bc1c2ef97d6312.jar" />
     </item>
     <item
-        jar="G:\Triperati\app\build\intermediates\exploded-aar\com.r0adkll\postoffice\1.1.9\libs\annotations.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="e177dd19152ee74c698883eab7e9cfa390da59d5">
-        <dex dex="G:\Triperati\app\build\intermediates\pre-dexed\debug\annotations-77aa34cc0ed2cca28c7c24fb5cf8c2cb30bd5def.jar" />
+        jar="/home/ayushb/.gradle/caches/modules-2/files-2.1/oauth.signpost/signpost-commonshttp4/1.2.1.2/731e05de30cfeb1f41d417f886277f9597fe0f36/signpost-commonshttp4-1.2.1.2.jar"
+        jumboMode="false" revision="21.1.2" sha1="731e05de30cfeb1f41d417f886277f9597fe0f36">
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/signpost-commonshttp4-1.2.1.2-0ef2373b2ec3cf783757cb35f98a9ad44a461f2d.jar" />
     </item>
     <item
-        jar="G:\Triperati\app\build\intermediates\exploded-aar\com.github.medyo\fancybuttons\1.0\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="cacdce71af390a8191f068cff1027ab440891dc4">
-        <dex dex="G:\Triperati\app\build\intermediates\pre-dexed\debug\classes-ff47a00f3958f927a551263871eaa39b9c2eb4c0.jar" />
+        jar="/home/ayushb/Triperati/app/build/intermediates/exploded-aar/com.r0adkll/postoffice/1.1.9/libs/annotations.jar"
+        jumboMode="false" revision="21.1.2" sha1="e177dd19152ee74c698883eab7e9cfa390da59d5">
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/annotations-cd4f5a4cc06d129406c1d44c9c1613401da3d5ca.jar" />
     </item>
     <item
-        jar="G:\Triperati\libs\jackson-core-2.1.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="f6c3aed1cdfa21b5c1737c915186ea93a95a58bd">
-        <dex dex="G:\Triperati\app\build\intermediates\pre-dexed\debug\jackson-core-2.1.3-d5b5d0d7f12de14c79766a2f91e2ee5320c12a42.jar" />
+        jar="/home/ayushb/Triperati/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
+        jumboMode="false" revision="21.1.2" sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/classes-c171d50a28934194a9a8cc95de5ebe60c76ad338.jar" />
     </item>
     <item
-        jar="G:\Triperati\libs\kinvey-java-2.7.2.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="c1e6558b3b7445fd5209112e004a0b99e433c64b">
-        <dex dex="G:\Triperati\app\build\intermediates\pre-dexed\debug\kinvey-java-2.7.2-f8423dfde1dedfb060455d3e2041332a67b4b611.jar" />
+        jar="/home/ayushb/Triperati/app/build/intermediates/exploded-aar/co.52inc/fontloader/1.0.1/classes.jar"
+        jumboMode="false" revision="21.1.2" sha1="a7cc1b6fdc7c5e2de2dd0461e3fcd30cb5c26152">
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/classes-f50562be7000cf953ddbef7a9fdb6ed981f4b331.jar" />
+    </item>
+    <item jar="/home/ayushb/Triperati/app/libs/google-http-client-jackson2-1.19.0.jar"
+        jumboMode="false" revision="21.1.2" sha1="81dbf9795d387d5e80e55346582d5f2fb81a42eb">
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/google-http-client-jackson2-1.19.0-c612e969a55d5682d4a7a2df41aec0c872ec267f.jar" />
     </item>
     <item
-        jar="G:\Triperati\app\build\intermediates\exploded-aar\com.github.castorflex.smoothprogressbar\library\0.4.0\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="6ca319f998430aa20c4dde97ba6df213d6cf3dd0">
-        <dex dex="G:\Triperati\app\build\intermediates\pre-dexed\debug\classes-83dfd7b496783f2be98a533fba8d1417ad8739d6.jar" />
+        jar="/home/ayushb/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore/4.0.1/e813b8722c387b22e1adccf7914729db09bcb4a9/httpcore-4.0.1.jar"
+        jumboMode="false" revision="21.1.2" sha1="e813b8722c387b22e1adccf7914729db09bcb4a9">
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/httpcore-4.0.1-ec80332de1d6716017968aa460dace0337094a39.jar" />
     </item>
     <item
-        jar="G:\Triperati\libs\kinvey-android-lib-2.7.2.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="50ef37eba372c77e5ac1ae4a17e3b4b620085a8e">
-        <dex dex="G:\Triperati\app\build\intermediates\pre-dexed\debug\kinvey-android-lib-2.7.2-9b04981209a1ccdebe5684a55899a90473e8cd49.jar" />
+        jar="/home/ayushb/Triperati/app/build/intermediates/exploded-aar/com.github.chrisbanes.actionbarpulltorefresh/library/0.9.9/classes.jar"
+        jumboMode="false" revision="21.1.2" sha1="06ca4ea902f14efb76284d918edb085df33cc365">
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/classes-5f524fb7b3cd5b75acc0a6377a4509ce57cd954d.jar" />
     </item>
     <item
-        jar="G:\Triperati\app\build\intermediates\exploded-aar\co.52inc\fontloader\1.0.1\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="a7cc1b6fdc7c5e2de2dd0461e3fcd30cb5c26152">
-        <dex dex="G:\Triperati\app\build\intermediates\pre-dexed\debug\classes-958bfd1fbcde8bb745f114247e8107aaeead5dbd.jar" />
+        jar="/home/ayushb/Triperati/app/build/intermediates/exploded-aar/com.github.castorflex.smoothprogressbar/library/0.4.0/classes.jar"
+        jumboMode="false" revision="21.1.2" sha1="6ca319f998430aa20c4dde97ba6df213d6cf3dd0">
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/classes-5bde63d106dafe5f26f46f089586c89ac54519be.jar" />
+    </item>
+    <item jar="/home/ayushb/Triperati/app/libs/Android-SimpleLocation.jar" jumboMode="false"
+        revision="21.1.2" sha1="0391a4af51b7eb50205522716ffc43da9087fced">
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/Android-SimpleLocation-955f8ca080a27711838b1703ae8774b45c3e7c29.jar" />
     </item>
     <item
-        jar="G:\Triperati\app\build\intermediates\exploded-aar\com.github.chrisbanes.actionbarpulltorefresh\library\0.9.9\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="06ca4ea902f14efb76284d918edb085df33cc365">
-        <dex dex="G:\Triperati\app\build\intermediates\pre-dexed\debug\classes-90cf6a4b3a5c000e98384eb462ab304a24d474ec.jar" />
+        jar="/home/ayushb/Triperati/app/build/intermediates/exploded-aar/jp.wasabeef/picasso-transformations/1.0.0/classes.jar"
+        jumboMode="false" revision="21.1.2" sha1="d36c6129f237252019526bfc99ede17d80edfd26">
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/classes-0e2ed669d4bd8aee8d97b066403266222cb98bce.jar" />
     </item>
     <item
-        jar="G:\Triperati\app\build\intermediates\exploded-aar\jp.wasabeef\picasso-transformations\1.0.0\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="d36c6129f237252019526bfc99ede17d80edfd26">
-        <dex dex="G:\Triperati\app\build\intermediates\pre-dexed\debug\classes-515618d44199443553cfbe386e80dec441f39d1c.jar" />
+        jar="/home/ayushb/.gradle/caches/modules-2/files-2.1/org.twitter4j/twitter4j-core/4.0.2/6555e7c45f5db0006823731b2ddb536d481e11d1/twitter4j-core-4.0.2.jar"
+        jumboMode="false" revision="21.1.2" sha1="6555e7c45f5db0006823731b2ddb536d481e11d1">
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/twitter4j-core-4.0.2-35d8fada78e23c3efcfd36d42a5b45c299b1a1cf.jar" />
     </item>
     <item
-        jar="G:\Triperati\app\build\intermediates\exploded-aar\com.github.gabrielemariotti.cards\cardslib-core\2.0.1\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="81d6467247ced8a5d51f8ff73a6595d517eddba6">
-        <dex dex="G:\Triperati\app\build\intermediates\pre-dexed\debug\classes-6f666270cf7a07bbb0bdfae6d3b2982442bb3ddb.jar" />
+        jar="/home/ayushb/Triperati/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/classes.jar"
+        jumboMode="false" revision="21.1.2" sha1="dd9247ea0fabe8ee479638c4b4a23e93752be256">
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/classes-3237b723be5f5ca6bc0d644c396ea797d99b3165.jar" />
+    </item>
+    <item jar="/home/ayushb/Triperati/app/libs/gson-2.1.jar" jumboMode="false" revision="21.1.2"
+        sha1="2e66da15851f9f5b5079228f856c2f090ba98c38">
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/gson-2.1-09e7604cd0f6b930f0cde36583657c7927dc78b5.jar" />
     </item>
     <item
-        jar="C:\Users\yushrox\.gradle\caches\modules-2\files-2.1\org.twitter4j\twitter4j-core\4.0.2\6555e7c45f5db0006823731b2ddb536d481e11d1\twitter4j-core-4.0.2.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="6555e7c45f5db0006823731b2ddb536d481e11d1">
-        <dex dex="G:\Triperati\app\build\intermediates\pre-dexed\debug\twitter4j-core-4.0.2-43d3446f9c16979f8a401131c88679ca7a7ea26a.jar" />
+        jar="/home/ayushb/Triperati/app/build/intermediates/exploded-aar/com.makeramen/roundedimageview/2.0.1/classes.jar"
+        jumboMode="false" revision="21.1.2" sha1="2abde49a8d53539fa902ab5b8d29698023b262dd">
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/classes-5d8c325e5a10837018e63a819a68438eed2b6cab.jar" />
     </item>
     <item
-        jar="G:\Triperati\app\build\intermediates\exploded-aar\com.github.gabrielemariotti.cards\cardslib-cards\2.0.1\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="d851788f6c23d14aa5fa8fbfd6d1b17725ad44c5">
-        <dex dex="G:\Triperati\app\build\intermediates\pre-dexed\debug\classes-7585ced87e4071fc04e9f29e73d739075f86c17f.jar" />
+        jar="/home/ayushb/Triperati/app/build/intermediates/exploded-aar/com.r0adkll/postoffice/1.1.9/classes.jar"
+        jumboMode="false" revision="21.1.2" sha1="a4269a4e59dedd8cfd57ad461a59ed089581f4da">
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/classes-0bac38a1f6e38ca8369d612d371fa61f926e7c2a.jar" />
     </item>
     <item
-        jar="G:\Triperati\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.5.87\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="dd9247ea0fabe8ee479638c4b4a23e93752be256">
-        <dex dex="G:\Triperati\app\build\intermediates\pre-dexed\debug\classes-3ee4cc11822ea7d57b5849cc153a3717e76c6cbb.jar" />
+        jar="/home/ayushb/Triperati/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/21.0.3/classes.jar"
+        jumboMode="false" revision="21.1.2" sha1="4b8945fc23a7461c6fdde15753456d64b0a9358b">
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/classes-851d257edf47f1276b13d08ac6e40f77654af42c.jar" />
     </item>
     <item
-        jar="G:\Triperati\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="G:\Triperati\app\build\intermediates\pre-dexed\debug\classes-83854827f6f64af2aea9ae57760ad17ff247034f.jar" />
+        jar="/home/ayushb/.gradle/caches/modules-2/files-2.1/oauth.signpost/signpost-core/1.2.1.2/bf95955dcf3d5a78c201e49b0c336787ea73f161/signpost-core-1.2.1.2.jar"
+        jumboMode="false" revision="21.1.2" sha1="bf95955dcf3d5a78c201e49b0c336787ea73f161">
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/signpost-core-1.2.1.2-954ee83aa54f23061571b35fc678f5ddedd5f1fd.jar" />
     </item>
     <item
-        jar="G:\Triperati\libs\google-http-client-android-1.19.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="e3f11020c2c812112803d252d1392872d3f619c8">
-        <dex dex="G:\Triperati\app\build\intermediates\pre-dexed\debug\google-http-client-android-1.19.0-7289b1e5f86b55684e574a4be7a640cddabb05b9.jar" />
+        jar="/home/ayushb/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.4.0/f36d2d4e3a36b3259aaf9d004d29b4cdc6c1bfb2/picasso-2.4.0.jar"
+        jumboMode="false" revision="21.1.2" sha1="f36d2d4e3a36b3259aaf9d004d29b4cdc6c1bfb2">
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/picasso-2.4.0-a6f0d137ef216dcd87b9a1869a935271ac515d0a.jar" />
     </item>
     <item
-        jar="G:\Triperati\libs\google-http-client-gson-1.19.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="b3cdefb990d5212bb2a130525b20e2c44aeffc4c">
-        <dex dex="G:\Triperati\app\build\intermediates\pre-dexed\debug\google-http-client-gson-1.19.0-4a68500ceede6393fb6eeda359c3a96eb9ce21f9.jar" />
+        jar="/home/ayushb/.gradle/caches/modules-2/files-2.1/com.joanzapata.android/android-iconify/1.0.9/27817b0ae26d4fa788711f1f75aaa45d76901722/android-iconify-1.0.9.jar"
+        jumboMode="false" revision="21.1.2" sha1="27817b0ae26d4fa788711f1f75aaa45d76901722">
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/android-iconify-1.0.9-7954f9ff7da8df5a97938867d9b6b0afaaa99431.jar" />
     </item>
     <item
-        jar="G:\Triperati\libs\Android-SimpleLocation.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="0391a4af51b7eb50205522716ffc43da9087fced">
-        <dex dex="G:\Triperati\app\build\intermediates\pre-dexed\debug\Android-SimpleLocation-70f807ab9e0d8875c47fe3862f91df009b33033f.jar" />
+        jar="/home/ayushb/Triperati/app/build/intermediates/exploded-aar/com.github.traex.rippleeffect/library/1.2.2/classes.jar"
+        jumboMode="false" revision="21.1.2" sha1="654c6419d70de56fcc0e3a098a948827a4b417f8">
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/classes-b2c7528e39fdb99bc9d9b4aafcf793b527163bbe.jar" />
     </item>
     <item
-        jar="G:\Triperati\app\build\intermediates\exploded-aar\com.r0adkll\postoffice\1.1.9\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="a4269a4e59dedd8cfd57ad461a59ed089581f4da">
-        <dex dex="G:\Triperati\app\build\intermediates\pre-dexed\debug\classes-a8204d20eaeed6e41e86e30034ffbdf65d31223a.jar" />
+        jar="/home/ayushb/Triperati/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-cards/2.0.1/classes.jar"
+        jumboMode="false" revision="21.1.2" sha1="d851788f6c23d14aa5fa8fbfd6d1b17725ad44c5">
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/classes-3bd5722d89451eeb54390a932969f9ee4d308ca4.jar" />
     </item>
     <item
-        jar="C:\Users\yushrox\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.4.0\f36d2d4e3a36b3259aaf9d004d29b4cdc6c1bfb2\picasso-2.4.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="f36d2d4e3a36b3259aaf9d004d29b4cdc6c1bfb2">
-        <dex dex="G:\Triperati\app\build\intermediates\pre-dexed\debug\picasso-2.4.0-737212a8329f64370d59e109112042dcddcdb931.jar" />
+        jar="/home/ayushb/Triperati/app/build/intermediates/exploded-aar/com.melnykov/floatingactionbutton/1.3.0/classes.jar"
+        jumboMode="false" revision="21.1.2" sha1="8c6ebb7d087d1a30bf84356bd2aecf85309fc024">
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/classes-85436657c7d06a279b9cca4f636f2fde9c4d1d74.jar" />
     </item>
     <item
-        jar="G:\Triperati\app\build\intermediates\exploded-aar\com.jpardogo.materialtabstrip\library\1.0.9\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="ed2ab55be78d5d54ac9060d70d65a4573ae3d2ec">
-        <dex dex="G:\Triperati\app\build\intermediates\pre-dexed\debug\classes-b9133917809b1fc64d889402c0763ba4fbb26973.jar" />
+        jar="/home/ayushb/Triperati/app/build/intermediates/exploded-aar/com.jpardogo.materialtabstrip/library/1.0.9/classes.jar"
+        jumboMode="false" revision="21.1.2" sha1="ed2ab55be78d5d54ac9060d70d65a4573ae3d2ec">
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/classes-aaddfe0ca49bb457a36e03cf13ece9df4b03f5f0.jar" />
+    </item>
+    <item jar="/home/ayushb/Triperati/app/libs/kinvey-java-2.7.2.jar" jumboMode="false"
+        revision="21.1.2" sha1="c1e6558b3b7445fd5209112e004a0b99e433c64b">
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/kinvey-java-2.7.2-5a399aeead45c85ebcd822970d251b25329b9bc5.jar" />
     </item>
     <item
-        jar="G:\Triperati\app\build\intermediates\exploded-aar\jp.wasabeef\picasso-transformations\1.0.0\libs\gpuimage-library1.2.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="ac5f42118c1333630f1422215c0dfea760eb42b3">
-        <dex dex="G:\Triperati\app\build\intermediates\pre-dexed\debug\gpuimage-library1.2.3-2928fe4bedac33af75a9352a00e809747ba9e881.jar" />
+        jar="/home/ayushb/Triperati/app/build/intermediates/exploded-aar/jp.wasabeef/picasso-transformations/1.0.0/libs/gpuimage-library1.2.3.jar"
+        jumboMode="false" revision="21.1.2" sha1="ac5f42118c1333630f1422215c0dfea760eb42b3">
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/gpuimage-library1.2.3-6523a687f13de4199ef13d127b26b69e7399b2a9.jar" />
     </item>
     <item
-        jar="G:\Triperati\libs\Parse-1.8.2.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="c2cb0bfe37cbefd855b6faa3c9a5be833aba7300">
-        <dex dex="G:\Triperati\app\build\intermediates\pre-dexed\debug\Parse-1.8.2-32a81b34d6b4a74e20e00b18c616957b69ef7301.jar" />
+        jar="/home/ayushb/.gradle/caches/modules-2/files-2.1/com.google.oauth-client/google-oauth-client/1.19.0/d473a8962e14a707a3716637e4898bb2dd9643f2/google-oauth-client-1.19.0.jar"
+        jumboMode="false" revision="21.1.2" sha1="d473a8962e14a707a3716637e4898bb2dd9643f2">
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/google-oauth-client-1.19.0-d9ef5f40c5500d15ce53b30d0f1c7e1587f866ad.jar" />
     </item>
     <item
-        jar="C:\Users\yushrox\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="G:\Triperati\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-c3433e500dfe640e973f47f23ec245c754382778.jar" />
+        jar="/home/ayushb/Triperati/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.0/classes.jar"
+        jumboMode="false" revision="21.1.2" sha1="7d2525cba8ed61fff102977caed964fc22061e34">
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/classes-908ddde1ec7f234eede20acfb728a1f28c2202c0.jar" />
+    </item>
+    <item jar="/home/ayushb/Triperati/app/libs/google-http-client-android-1.19.0.jar"
+        jumboMode="false" revision="21.1.2" sha1="e3f11020c2c812112803d252d1392872d3f619c8">
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/google-http-client-android-1.19.0-e778257d9e35244e7f169164b85e8b29176ed650.jar" />
     </item>
     <item
-        jar="G:\Triperati\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="G:\Triperati\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-21f240f5aade28ec4d3544fe0ea86eeb0ba5a11e.jar" />
+        jar="/home/ayushb/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.3/fd32786786e2adb664d5ecc965da47629dca14ba/commons-codec-1.3.jar"
+        jumboMode="false" revision="21.1.2" sha1="fd32786786e2adb664d5ecc965da47629dca14ba">
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/commons-codec-1.3-6da7c87381f8840c7e34abad9a2582fd3df67860.jar" />
     </item>
-    <item
-        jar="G:\Triperati\libs\guava-18.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
+    <item jar="/home/ayushb/Triperati/app/libs/guava-18.0.jar" jumboMode="false" revision="21.1.2"
         sha1="cce0823396aa693798f8882e64213b1772032b09">
-        <dex dex="G:\Triperati\app\build\intermediates\pre-dexed\debug\guava-18.0-73bbdd75af6c8e2275d50c74901225e77765a309.jar" />
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/guava-18.0-c15ef432d544cbfe38824348e19049c0660ee8cc.jar" />
     </item>
     <item
-        jar="G:\Triperati\app\build\intermediates\exploded-aar\com.github.traex.rippleeffect\library\1.2.2\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="654c6419d70de56fcc0e3a098a948827a4b417f8">
-        <dex dex="G:\Triperati\app\build\intermediates\pre-dexed\debug\classes-f2b877c167d56be026ad1cefb2d54041b18ce298.jar" />
+        jar="/home/ayushb/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
+        jumboMode="false" revision="21.1.2" sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/library-2.4.0-7d3dfa3883cec136d7271830853cc0b1c300acbf.jar" />
+    </item>
+    <item
+        jar="/home/ayushb/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/1.3.9/40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf/jsr305-1.3.9.jar"
+        jumboMode="false" revision="21.1.2" sha1="40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf">
+        <dex
+            dex="/home/ayushb/Triperati/app/build/intermediates/pre-dexed/debug/jsr305-1.3.9-db00cc89bcd7929ab8eb07fd57566c66a50472a1.jar" />
     </item>
 
 </items>

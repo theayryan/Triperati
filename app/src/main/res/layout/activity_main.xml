@@ -1,24 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="0px"
+        android:layout_height="0px"
+        android:focusable="true"
+        android:focusableInTouchMode="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?android:actionBarSize"
+        android:background="@color/appMain"
+        android:orientation="horizontal"
+        android:paddingBottom="5dip"
+        android:paddingTop="5dip">
+
+
+    </LinearLayout>
+
+
     <com.astuetz.PagerSlidingTabStrip
         android:id="@+id/tabs"
         android:layout_width="match_parent"
-        android:layout_height="48dip"
+        android:layout_height="?android:actionBarSize"
+        android:layout_gravity="center_vertical"
+        android:background="@color/WhiteSmoke"
         android:paddingTop="10dp"
-        app:pstsPaddingMiddle="true"
-        app:pstsTextSelectedStyle="bold"
+        app:pstsPaddingMiddle="false"
+        app:pstsShouldExpand="true"
         app:pstsTextColorSelected="@color/appMain"
-        android:background="@color/actionbar"
+
+
+        app:pstsTextSelectedStyle="bold"
         />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.melnykov.fab.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="bottom|right"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/ic_action_tweet"
+            fab:fab_colorNormal="@color/WhiteSmoke"
+            fab:fab_colorPressed="@color/appMain"
+            fab:fab_colorRipple="@color/White" />
+
+
+    </RelativeLayout>
 
     <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></android.support.v4.view.ViewPager>
+
 
 </LinearLayout>

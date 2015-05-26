@@ -1,12 +1,9 @@
 package com.ayush.triperati;
 
 import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.location.Location;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.preference.PreferenceManager;
@@ -14,8 +11,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.text.InputType;
-import android.util.Log;
-import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -27,18 +22,12 @@ import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.ayush.triperati.store.SharedPreferencesCredentialStore;
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.parse.FindCallback;
-import com.parse.ParseException;
-import com.parse.ParseGeoPoint;
-import com.parse.ParseObject;
-import com.parse.ParseQuery;
 import com.r0adkll.postoffice.PostOffice;
 import com.r0adkll.postoffice.model.Delivery;
 import com.r0adkll.postoffice.model.Design;
@@ -46,13 +35,9 @@ import com.r0adkll.postoffice.styles.EditTextStyle;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.List;
 
 import it.gmariotti.cardslib.library.internal.Card;
-import it.gmariotti.cardslib.library.internal.CardHeader;
 import it.gmariotti.cardslib.library.view.CardViewNative;
-import mehdi.sakout.fancybuttons.FancyButton;
-import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 import twitter4j.auth.AccessToken;
 
@@ -71,7 +56,7 @@ public class MapFragment extends Fragment {
     Card card;
     EditText JourneyBox;
     View this_fragment;
-    FancyButton Send;
+
     private ViewFlipper mViewFlipper;
     private SharedPreferences prefs;
 
@@ -90,17 +75,6 @@ public class MapFragment extends Fragment {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         mViewFlipper = (ViewFlipper) this_fragment.findViewById(R.id.viewFlipper);
-        JourneyBox = (EditText) this_fragment.findViewById(R.id.JourneyBox);
-        Send = (FancyButton) this_fragment.findViewById(R.id.send);
-        Send.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                if (JourneyBox.getText() != null) {
-                    goog_map.clear();
-                    new Card_builder().execute(JourneyBox.getText().toString());
-                } else
-                    Toast.makeText(fa, "No Text Found", Toast.LENGTH_SHORT).show();
-            }
-        });
 
         setHasOptionsMenu(true);
         return this_fragment;
@@ -134,6 +108,12 @@ public class MapFragment extends Fragment {
             //new Card_builder().execute();
 
         }
+        goog_map.setOnCameraChangeListener(new GoogleMap.OnCameraChangeListener() {
+            public void onCameraChange(CameraPosition cameraPosition) {
+                LatLng center = cameraPosition.target;
+                Toast.makeText(getActivity(), center.latitude + " " + center.longitude, Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
 
@@ -221,7 +201,7 @@ public class MapFragment extends Fragment {
                                 .setOnTextAcceptedListener(new EditTextStyle.OnTextAcceptedListener() {
                                     @Override
                                     public void onAccepted(String text) {
-                                        new Card_builder().execute(text);
+                                        //new Card_builder().execute(text);
                                         //Toast.makeText(fa, "Text was accepted: " + text, Toast.LENGTH_SHORT).show();
 
                                     }
@@ -240,7 +220,7 @@ public class MapFragment extends Fragment {
 
         new SharedPreferencesCredentialStore(prefs).clearCredentials();
     }
-
+/*
     public class Card_builder extends AsyncTask<String, Void, Void> {
 
         @Override
@@ -363,5 +343,5 @@ public class MapFragment extends Fragment {
 
     }
 
-
+*/
 }

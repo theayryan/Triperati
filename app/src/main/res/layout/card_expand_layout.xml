@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:fancy="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -18,25 +17,28 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dp"
             android:text="Trips"
             android:textColor="#ff000000"
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <mehdi.sakout.fancybuttons.FancyButton
-            android:id="@+id/addjourney"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+
+        <IconTextView
+            android:id="@+id/addJourney"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:background="#ffd1232f"
-            android:padding="10dp"
-            fancy:defaultColor="#d3d3d3"
-            fancy:focusColor="#313131"
-            fancy:fontIconResource="&#xf067;"
-            fancy:radius="30dp"
-            fancy:textColor="#FFFFFF"></mehdi.sakout.fancybuttons.FancyButton>
+            android:layout_marginRight="10dp"
+            android:shadowColor="#22000000"
+            android:shadowDx="3"
+            android:shadowDy="3"
+            android:shadowRadius="1"
+            android:text="{fa-plus}"
+            android:textColor="@color/appMain"
+            android:textSize="25sp" />
 
 
     </RelativeLayout>

@@ -10,14 +10,22 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
 import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
 import android.text.InputType;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.astuetz.PagerSlidingTabStrip;
@@ -26,42 +34,68 @@ import com.ayush.triperati.store.SharedPreferencesCredentialStore;
 import com.kinvey.android.Client;
 import com.kinvey.android.callback.KinveyUserCallback;
 import com.kinvey.java.User;
-import com.parse.signpost.OAuth;
-import com.parse.signpost.OAuthProvider;
-import com.parse.signpost.basic.DefaultOAuthProvider;
-import com.parse.signpost.commonshttp.CommonsHttpOAuthConsumer;
+import com.makeramen.roundedimageview.RoundedTransformationBuilder;
 import com.r0adkll.postoffice.PostOffice;
 import com.r0adkll.postoffice.model.Delivery;
 import com.r0adkll.postoffice.model.Design;
 import com.r0adkll.postoffice.styles.EditTextStyle;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
 
 import im.delight.android.location.SimpleLocation;
+import oauth.signpost.OAuth;
+import oauth.signpost.OAuthProvider;
+import oauth.signpost.basic.DefaultOAuthProvider;
+import oauth.signpost.commonshttp.CommonsHttpOAuthConsumer;
 import twitter4j.GeoLocation;
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+import twitter4j.TwitterFactory;
+import twitter4j.auth.AccessToken;
 
-public class MainActivity extends FragmentActivity  {
+public class MainActivity extends FragmentActivity implements View.OnClickListener, DrawerLayout.DrawerListener {
 
+    private static final int UPDATE_LOGIN = 1;
     SharedPreferences prefs;
     Delivery delivery;
     Design mtrlDesign = Design.MATERIAL_DARK;
     CommonsHttpOAuthConsumer consumer;
     OAuthProvider provider;
     Client kinveyclient;
+    Typeface josefin;
+    View this_fragment;
     private ViewPager viewPager;
     private TabsPagerAdapter mAdapter;
     //private ActionBar actionBar;
     private SimpleLocation simpleLocation;
-    private String[] tabs = {"Home Timeline", "User Timeline", "Journey Map"};
+    private boolean IS_TRIPS;
+    private boolean IS_TWEETS;
+    private DrawerLayout mDrawerLayout;
+    private View mDrawerElementsContainer;
+    private String profilePic;
+    private String userName;
+    private boolean IS_LOGGED_IN;
+    private TextView mUserName;
+    private ImageView mUserImage;
+    private UiHandler uiHandler;
+    private ServiceHandler mServiceHandler;
+    private String[] tokens;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.activity_main);
-        kinveyclient = new Client.Builder(this.getApplicationContext()).build();
+        setContentView(R.layout.new_main_layout);
+        kinveyclient = new Client.Builder(this).build();
+        getActionBar().hide();
         this.consumer = new CommonsHttpOAuthConsumer(Constants.API_KEY, Constants.API_SECRET);
         this.provider = new DefaultOAuthProvider(Constants.REQUEST_URL, Constants.ACCESS_URL, Constants.AUTHORIZE_URL);
         simpleLocation = new SimpleLocation(this);
-
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerElementsContainer = findViewById(R.id.drawer_root_layout);
+        mUserImage = (ImageView) findViewById(R.id.user_image);
+        mUserName = (TextView) findViewById(R.id.user_name);
+        josefin = Typeface.createFromAsset(getAssets(), "fonts/JosefinSans-Regular.ttf");
+        mUserName.setTypeface(josefin);
         viewPager = (ViewPager) findViewById(R.id.pager);
 
         mAdapter = new TabsPagerAdapter(getSupportFragmentManager());
@@ -69,10 +103,13 @@ public class MainActivity extends FragmentActivity  {
         viewPager.setAdapter(mAdapter);
         PagerSlidingTabStrip slidingTabStrip = (PagerSlidingTabStrip) findViewById(R.id.tabs);
         slidingTabStrip.setViewPager(viewPager);
-
+        viewPager.setOverScrollMode(View.OVER_SCROLL_NEVER);
         this.prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        uiHandler = new UiHandler();
         String[] check = new String[2];
-
+        HandlerThread mThread = new HandlerThread(this.getClass().getSimpleName(), android.os.Process.THREAD_PRIORITY_BACKGROUND);
+        mThread.start();
+        mServiceHandler = new ServiceHandler(mThread.getLooper());
         check = new SharedPreferencesCredentialStore(prefs).read();
         if (check[0].isEmpty() && check[1].isEmpty()) {
 
@@ -86,10 +123,12 @@ public class MainActivity extends FragmentActivity  {
         slidingTabStrip.setIndicatorColor(getResources().getColor(R.color.appMain));
         slidingTabStrip.setIndicatorHeight(15);
         slidingTabStrip.setTextColor(getResources().getColor(R.color.appMainLight));
-        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/Vonique64.ttf");
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/JosefinSans-Regular.ttf");
         slidingTabStrip.setTypeface(typeface,Typeface.BOLD);
 
     }
+
+
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
@@ -122,7 +161,15 @@ public class MainActivity extends FragmentActivity  {
     protected void onResume() {
         super.onResume();
         simpleLocation.beginUpdates();
+        tokens = new SharedPreferencesCredentialStore(prefs).read();
+        if (!TextUtils.isEmpty(tokens[0])) {
+            IS_LOGGED_IN = true;
+            mServiceHandler.obtainMessage(UPDATE_LOGIN);
+        } else {
+            IS_LOGGED_IN = false;
+        }
     }
+
     @Override
     protected void onStop() {
         super.onStop();
@@ -210,6 +257,53 @@ public class MainActivity extends FragmentActivity  {
         new SharedPreferencesCredentialStore(this.prefs).clearCredentials();
     }
 
+    public void onClick(View v) {
+        switch (v.getId()) {
+
+        }
+    }
+
+    public void onDrawerSlide(View view, float v) {
+
+    }
+
+    public void onDrawerOpened(View view) {
+
+    }
+
+    public void onDrawerClosed(View view) {
+
+    }
+
+    public void onDrawerStateChanged(int i) {
+
+    }
+
+    private class UiHandler extends android.os.Handler {
+
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case UPDATE_LOGIN:
+                    Transformation transformation = new RoundedTransformationBuilder()
+                            .borderColor(Color.BLACK)
+                            .borderWidthDp(3)
+                            .cornerRadiusDp(30)
+                            .oval(false)
+                            .build();
+
+                    Picasso.with(getApplicationContext())
+                            .load(profilePic)
+                            .fit()
+                            .transform(transformation)
+                            .into(mUserImage);
+                    mUserName.setText("@" + userName);
+            }
+
+        }
+    }
+
     private class OAuthRequestTokenTask extends AsyncTask<Void, Void, Void> {
         private Context context;
         private OAuthProvider provider;
@@ -276,6 +370,32 @@ public class MainActivity extends FragmentActivity  {
                 e.printStackTrace();
             }
             return null;
+        }
+    }
+
+    private class ServiceHandler extends android.os.Handler {
+        public ServiceHandler(Looper looper) {
+            super(looper);
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case UPDATE_LOGIN:
+                    AccessToken a = new AccessToken(tokens[0], tokens[1]);
+                    Twitter twitter = new TwitterFactory().getInstance();
+                    twitter.setOAuthConsumer(Constants.API_KEY, Constants.API_SECRET);
+                    twitter.setOAuthAccessToken(a);
+                    try {
+                        twitter4j.User user = twitter.showUser(twitter.getId());
+                        profilePic = user.getBiggerProfileImageURL();
+                        userName = user.getName();
+                        uiHandler.obtainMessage(UPDATE_LOGIN);
+                    } catch (TwitterException e) {
+                        e.printStackTrace();
+                    }
+            }
         }
     }
 

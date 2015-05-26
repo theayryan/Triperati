@@ -5,6 +5,7 @@ import android.app.FragmentManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.text.InputType;
 import android.text.SpannableString;
 import android.text.method.LinkMovementMethod;
@@ -12,11 +13,10 @@ import android.text.style.ClickableSpan;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.IconTextView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.parse.ParseGeoPoint;
-import com.parse.ParseObject;
 import com.r0adkll.postoffice.PostOffice;
 import com.r0adkll.postoffice.model.Delivery;
 import com.r0adkll.postoffice.model.Design;
@@ -28,8 +28,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import it.gmariotti.cardslib.library.internal.CardExpand;
-import mehdi.sakout.fancybuttons.FancyButton;
-import twitter4j.GeoLocation;
 import twitter4j.Status;
 
 /**
@@ -42,6 +40,9 @@ public class CustomCardExpand extends CardExpand {
     String dialogresult;
     ArrayList<String> trips;
     Design mtrlDesign = Design.MATERIAL_DARK;
+    Typeface josefin;
+    Typeface pontano;
+    TextView innerTitle;
     ArrayList<String>[] allTripTagsWRTtweet;
     BackendHandler backendHandler;
     public CustomCardExpand(Context context, int i, FragmentManager fragmentManager, Status status) {
@@ -50,7 +51,9 @@ public class CustomCardExpand extends CardExpand {
         this.fragmentManager = fragmentManager;
         this.status = status;
         dialogresult = new String();
-        backendHandler = new BackendHandler(ctx);
+        josefin = Typeface.createFromAsset(context.getAssets(), "fonts/JosefinSans-Regular.ttf");
+        pontano = Typeface.createFromAsset(context.getAssets(), "fonts/PontanoSans-Regular.ttf");
+        this.backendHandler = new BackendHandler(context);
         allTripTagsWRTtweet = backendHandler.getAllTripTagsWRTtweet(status.getId());
     }
 
@@ -64,11 +67,14 @@ public class CustomCardExpand extends CardExpand {
             }
         }
         else
-            tags.append("No Trips");
+            tags.append(ctx.getString(R.string.no_trips));
         String tagString = tags.toString();
+        innerTitle = (TextView) parent.findViewById(R.id.card_expand_inner_simple_title);
+        innerTitle.setText("Trips");
+        innerTitle.setTypeface(josefin);
         TextView txtview = (TextView) parent.findViewById(R.id.list_item_tag_cloud);
         makeTagLinks(tagString, txtview);
-        FancyButton addButton = (FancyButton) parent.findViewById(R.id.addjourney);
+        IconTextView addButton = (IconTextView) parent.findViewById(R.id.addJourney);
         addButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     makelistdialog();
@@ -79,25 +85,25 @@ public class CustomCardExpand extends CardExpand {
 
     private void makenewtripdialog() {
         Delivery delivery = PostOffice.newMail(ctx)
-                .setTitle("New Trip Tag")
+                .setTitle(ctx.getString(R.string.new_trip_tag))
                 .setThemeColor(Color.DKGRAY)
                 .setDesign(mtrlDesign)
                 .showKeyboardOnDisplay(true)
                 .setButtonTextColor(Dialog.BUTTON_POSITIVE, R.color.blue_500)
-                .setButton(Dialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
+                .setButton(Dialog.BUTTON_POSITIVE, ctx.getResources().getString(R.string.Ok), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
                     }
                 })
-                .setButton(Dialog.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {
+                .setButton(Dialog.BUTTON_NEGATIVE, ctx.getResources().getString(R.string.Cancel), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
                     }
                 })
                 .setStyle(new EditTextStyle.Builder(ctx)
-                        .setHint("Tag Name")
+                        .setHint(ctx.getResources().getString(R.string.tag_name))
                         .setInputType(InputType.TYPE_TEXT_VARIATION_NORMAL)
 
                         .setOnTextAcceptedListener(new EditTextStyle.OnTextAcceptedListener() {
@@ -111,10 +117,10 @@ public class CustomCardExpand extends CardExpand {
                                     ArrayList<Double> location = new ArrayList<Double>();
                                     location.add(status.getGeoLocation().getLongitude());
                                     location.add(status.getGeoLocation().getLatitude());
-                                    Log.d("Location",location.get(0)+" "+location.get(1));
-                                    backendHandler.addData(dialogresult, status.getId(),location);
+                                    Log.d("Location", location.get(0) + " " + location.get(1));
+                                    backendHandler.addData(dialogresult, status.getId(), location);
                                 } else
-                                    Toast.makeText(ctx, "Location information not available", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(ctx, ctx.getResources().getText(R.string.location_not_available), Toast.LENGTH_SHORT).show();
                             }
                         }).build())
 
@@ -124,15 +130,6 @@ public class CustomCardExpand extends CardExpand {
         delivery.show(fragmentManager);
     }
 
-    void save_data(final Long item_id, final String data, GeoLocation location) {
-        ParseObject journey_data = new ParseObject("journey_data");
-        journey_data.put("tweet_id", item_id);
-        journey_data.put("journey_tag", data);
-        ParseGeoPoint geoPoint = new ParseGeoPoint(location.getLatitude(), location.getLongitude());
-        journey_data.put("location", geoPoint);
-        journey_data.saveInBackground();
-        //Toast.makeText(fa, data + " " + Long.toString(item_id), Toast.LENGTH_LONG).show();
-    }
 
     private void makelistdialog() {
         ArrayList<String> tripsPossible = allTripTagsWRTtweet[1];
@@ -142,12 +139,12 @@ public class CustomCardExpand extends CardExpand {
             charSequence = new CharSequence[tripsPossible.size() + 1];
             for (int i = 0; i < trips.size() + 1; i++) {
                 if (i == 0) {
-                    charSequence[i] = "Add to new trip";
+                    charSequence[i] = ctx.getResources().getString(R.string.add_to_new_trip);
                 } else
                     charSequence[i] = trips.get(i - 1);
             }
 
-            Delivery delivery = PostOffice.newSimpleListMail(ctx, "Add to trip", mtrlDesign, charSequence, new ListStyle.OnItemAcceptedListener<CharSequence>() {
+            Delivery delivery = PostOffice.newSimpleListMail(ctx, ctx.getString(R.string.add_to_trip), mtrlDesign, charSequence, new ListStyle.OnItemAcceptedListener<CharSequence>() {
 
                 public void onItemAccepted(CharSequence s, int i) {
                     if (i == 0) {
@@ -161,14 +158,14 @@ public class CustomCardExpand extends CardExpand {
                             backendHandler.addData(s.toString(), status.getId(), location);
                         }
                         else
-                            Toast.makeText(ctx, "Location information not available", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ctx, ctx.getString(R.string.location_not_available), Toast.LENGTH_SHORT).show();
                     }
                 }
             });
             delivery.show(fragmentManager);
         }
         else{
-            Toast.makeText(ctx,"Already part of all existing trips",Toast.LENGTH_SHORT).show();
+            Toast.makeText(ctx, ctx.getString(R.string.part_of_all_trips), Toast.LENGTH_SHORT).show();
             makenewtripdialog();
         }
     }
@@ -188,6 +185,7 @@ public class CustomCardExpand extends CardExpand {
             start += item.length() + 2;//comma and space in the original text ;)
         }
         tv.setMovementMethod(LinkMovementMethod.getInstance());
+        tv.setTypeface(pontano);
         tv.setText(ss, TextView.BufferType.SPANNABLE);
     }
 
